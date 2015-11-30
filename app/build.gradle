@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+apply plugin: 'bugly'   //添加Bugly符号表插件
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.example.syl.mybugapplication"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //compile files('libs/bugly_1.2.7_release.jar')
+    compile 'com.tencent.bugly:crashreport:1.2.7'
+}
+
+bugly {
+    appId = '900013982'    //注册时分配的App ID
+    appKey = '1EbsEb2Sh184vxgI'  //注册时分配的App Key
+}
