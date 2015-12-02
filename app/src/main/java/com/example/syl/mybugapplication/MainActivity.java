@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.tv_view)
     public void  onClickTextViewOperation(){
       String path=  Environment.getExternalStorageDirectory().getAbsolutePath();
+//        File file=new File(path,"/test/testa.db");
+//        if(file.exists()){
+//            Log.i("result:","exists");
+//            file.delete();
+//        }
+//        else {
+//            file.mkdirs();
+//        }
         SQLiteDatabase database=SQLiteDatabase.openOrCreateDatabase(path+"/test/testa.db",null);
     }
 
