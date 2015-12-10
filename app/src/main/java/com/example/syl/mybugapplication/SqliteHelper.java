@@ -9,18 +9,29 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class SqliteHelper extends SQLiteOpenHelper {
 
+    private static final String createPostTableSql = "create table posts (" +
+            "_id integer primary key autoincrement," +
+            "title varchar," +
+            "author varchar," +
+            "link varchar," +
+            "description varchar," +
+            "date varchar)";
 
-    public SqliteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    private Context context;
+
+    public SqliteHelper(Context c, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(c, name, factory, version);
+        context = c;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(createPostTableSql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("drop table if exists posts");
+        onCreate(db);
     }
 }

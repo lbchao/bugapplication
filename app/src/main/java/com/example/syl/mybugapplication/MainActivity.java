@@ -1,19 +1,17 @@
 package com.example.syl.mybugapplication;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import java.io.File;
+import com.example.syl.mybugapplication.activity.IssueOneHundredAndEighteenActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -49,16 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.tv_view)
     public void  onClickTextViewOperation(){
-      String path=  Environment.getExternalStorageDirectory().getAbsolutePath();
-//        File file=new File(path,"/test/testa.db");
-//        if(file.exists()){
-//            Log.i("result:","exists");
-//            file.delete();
-//        }
-//        else {
-//            file.mkdirs();
-//        }
-        SQLiteDatabase database=SQLiteDatabase.openOrCreateDatabase(path+"/test/testa.db",null);
+//        Intent intent=new Intent(this, IssueOnehundredAndThreeActivity.class);
+     //   Intent intent=new Intent(this, IssueOneHundredAndFourActivity.class);
+        //     Intent intent=new Intent(this, IssueOneHundredAndFiveActivity.class);
+//            Intent intent=new Intent(this, IssueOneHundrdAndSevenActivity.class);
+        Intent intent=new Intent(this, IssueOneHundredAndEighteenActivity.class);
+        startActivity(intent);
     }
 
 
